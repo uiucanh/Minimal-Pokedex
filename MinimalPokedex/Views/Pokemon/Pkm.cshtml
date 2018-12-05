@@ -1,0 +1,33 @@
+﻿@model PokemonDetailViewModel
+
+@{
+    var ImageSrc = "~/Images/" + Model.Pokemon.PokemonID.ToString() + ".png";
+    var PokemonID = Model.Pokemon.PokemonID;
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <center>
+                <img src="@Url.Content(ImageSrc)" class="img-responsive border border-secondary">
+            </center>
+        </div>
+        <div class="col mt-4">
+            <partial name="PokemonSummary" />
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-12">
+            @if (!(Model.PrevPokemon is null))
+            {
+                <a asp-action="Pkm" asp-route-id="@(PokemonID - 1)">@Model.PrevPokemon</a>
+            }
+            @if (!(Model.NextPokemon is null))
+            {
+
+                <a asp-action="Pkm" asp-route-id="@(PokemonID + 1)" class="float-right"><center>@Model.NextPokemon</center></a>
+            }
+        </div>
+    </div>
+</div>
+

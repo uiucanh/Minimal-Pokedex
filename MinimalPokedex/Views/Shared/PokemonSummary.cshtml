@@ -1,0 +1,40 @@
+﻿@model PokemonDetailViewModel
+
+<h3 id="pokemon-bg-name">
+    @Model.Pokemon.Name
+</h3>
+Pokedex ID: @Model.Pokemon.PokemonID
+<br>
+Generation : @Model.Pokemon.Generation
+<br>
+@if (Model.Pokemon.Type2 != null)
+{
+    @:Type: @Model.Pokemon.Type1.TypeName, @Model.Pokemon.Type2.TypeName
+}
+else
+{
+    @:Type: @Model.Pokemon.Type1.TypeName
+}
+<br>
+Weaknesses: @foreach (var w in Model.Weaknesses)
+{
+    if (w != Model.Weaknesses.Last())
+    {
+        @: @w.TypeName,
+    }
+    else
+    {
+        @: @w.TypeName
+    }
+}<br>
+Abilities: @foreach (var a in Model.Abilities)
+{
+    if (a != Model.Abilities.Last())
+    {
+        @: @a.AbilityName,
+    }
+    else
+    {
+        @: @a.AbilityName
+    }
+}
