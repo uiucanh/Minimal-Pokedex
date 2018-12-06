@@ -9,22 +9,23 @@ Generation : @Model.Pokemon.Generation
 <br>
 @if (Model.Pokemon.Type2 != null)
 {
-    @:Type: @Model.Pokemon.Type1.TypeName, @Model.Pokemon.Type2.TypeName
+    <span>Type: <type type-name="@Model.Pokemon.Type1.TypeName"></type>, <type type-name="@Model.Pokemon.Type2.TypeName"></type></span>
 }
-else
+else 
 {
-    @:Type: @Model.Pokemon.Type1.TypeName
+    <span>Type: <type type-name="@Model.Pokemon.Type1.TypeName"></type></span>
 }
+
 <br>
 Weaknesses: @foreach (var w in Model.Weaknesses)
 {
     if (w != Model.Weaknesses.Last())
     {
-        @: @w.TypeName,
+        <span><type type-name="@w.TypeName"></type>,</span>
     }
     else
     {
-        @: @w.TypeName
+        <type type-name="@w.TypeName"></type>
     }
 }<br>
 Abilities: @foreach (var a in Model.Abilities)
