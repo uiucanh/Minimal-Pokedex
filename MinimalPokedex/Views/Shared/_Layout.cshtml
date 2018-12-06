@@ -6,11 +6,8 @@
     <title>Minimal Pokedex</title>
     <link rel="stylesheet" asp-href-include="/lib/twitter-bootstrap/**/*.min.css" />
     <link rel="stylesheet" asp-href-include="/lib/twitter-bootstrap/**/MyStyleSheet.css" />
-    <script src="~/lib/twitter-bootstrap/js/bootstrap.js"></script>
-    <script src="~/lib/twitter-bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand" asp-controller="Pokemon" asp-action="List">Minimal Pokedex</a>
@@ -30,7 +27,7 @@
                         <a class="nav-link" href="#">Generations</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
+                <form class="form-inline my-2 my-lg-0"> 
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
@@ -42,5 +39,7 @@
         @RenderBody()
     </div>
 
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/twitter-bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
