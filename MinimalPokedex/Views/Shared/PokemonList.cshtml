@@ -1,0 +1,19 @@
+﻿@model PokemonListViewModel
+
+@{
+    var pokemonCount = 0;
+}
+
+<table style="width:100%">
+    @{
+        foreach (var p in Model.Pokemons)
+        {
+            if (pokemonCount % 3 == 0)
+            {
+                @:<tr>
+                }
+                <td width="33%"><a asp-controller="Pokemon" asp-action="Pkm" asp-route-id="@p.PokemonID"><center>@p.Name</center></a></td>
+                pokemonCount++;
+            }
+    }
+</table>

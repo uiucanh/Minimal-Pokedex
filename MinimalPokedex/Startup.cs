@@ -47,6 +47,11 @@ namespace MinimalPokedex
                 defaults: new { controller = "Pokemon", action="List"});
 
                 routes.MapRoute(
+                name: null,
+                template: "Search/Page{listPage}/",
+                defaults: new { controller = "Search", action = "Index" });
+
+                routes.MapRoute(
                 name: "default",
                 template: "{controller=Pokemon}/{action=List}/{id?}");
             });

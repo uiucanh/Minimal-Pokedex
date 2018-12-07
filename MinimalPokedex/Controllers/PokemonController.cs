@@ -9,6 +9,7 @@ using System.Dynamic;
 using MinimalPokedex.Models.ViewModels;
 using System.Diagnostics;
 using Type = MinimalPokedex.Models.Type;
+using Microsoft.EntityFrameworkCore;
 
 namespace MinimalPokedex.Controllers
 {
