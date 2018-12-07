@@ -2,6 +2,7 @@
 
 @{
     var pokemonCount = 0;
+    var SpriteSrc = "~/Sprites/";
 }
 
 <table style="width:100%">
@@ -12,7 +13,12 @@
             {
                 @:<tr>
                 }
-                <td width="33%"><a asp-controller="Pokemon" asp-action="Pkm" asp-route-id="@p.PokemonID"><center>@p.Name</center></a></td>
+                <td width="33%">
+                    <a asp-controller="Pokemon" asp-action="Pkm" asp-route-id="@p.PokemonID">
+                    @{ var SpriteImg = SpriteSrc + p.PokemonID + ".png";}
+                    <center><img src="@Url.Content(SpriteImg)" /></center>
+                    <center>@p.Name</center></a>
+                </td>
                 pokemonCount++;
             }
     }

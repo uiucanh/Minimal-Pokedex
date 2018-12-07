@@ -1,0 +1,47 @@
+﻿@model PokemonDetailViewModel
+
+<h3 id="pokemon-bg-name">
+    Base Stats
+</h3>
+
+@{
+    var HP = Model.Pokemon.HP;
+    var Attack = Model.Pokemon.Attack;
+    var Defense = Model.Pokemon.Defense;
+    var SpAttack = Model.Pokemon.SpAttack;
+    var SpDefense = Model.Pokemon.SpDefense;
+    var Speed = Model.Pokemon.Speed;
+    Dictionary<String, Decimal> Stats = new Dictionary<string, decimal>() {
+        {"HP", HP},
+        {"Attack", Attack},
+        {"Defense", Defense},
+        {"Sp.Attack", SpAttack},
+        {"Sp.Defense", SpDefense},
+        {"Speed", Speed}
+    };
+    List<String> Colors = new List<string>() { "red", "#F5AC78", "#F8D030", "9DB7F5", "green", "pink"};
+    var colorIndex = 0;
+}
+
+@{
+    foreach (KeyValuePair<String, Decimal> stat in Stats)
+    {
+        <table width="100%">
+            <tr>
+                <td width="30%">
+                    @(stat.Key):
+                </td>
+                <td width="70%">
+                    <div class="progress">
+                        @{ decimal value = stat.Value * 100 / 255;}
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                             style="width:@(value+"%"); background-color:@(Colors[colorIndex])">
+                            @stat.Value
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        colorIndex++;
+    }
+}

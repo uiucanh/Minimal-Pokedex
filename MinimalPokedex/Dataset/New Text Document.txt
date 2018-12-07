@@ -1,4 +1,0 @@
-SELECT Name, value
-FROM pokemon_min$  
-    CROSS APPLY STRING_SPLIT(Abilities, ',')
-ORDER BY PokemonID ASC

@@ -2,32 +2,47 @@
 
 @{
     var ImageSrc = "~/Images/" + Model.Pokemon.PokemonID.ToString() + ".png";
+    var SpriteSrc = "~/Sprites/";
     var PokemonID = Model.Pokemon.PokemonID;
 }
 
 <div class="container">
-    <div class="row">
-        <div class="col-lg-4">
+    <div class="row mb-4">
+        <div class="col">
             <center>
-                <img src="@Url.Content(ImageSrc)" class="img-responsive border border-secondary">
+                <img src="@Url.Content(ImageSrc)" class="img-responsive">
             </center>
         </div>
-        <div class="col mt-4">
+    </div>
+    <div class="row">
+        <div class="col-sm mb-2">
             <partial name="PokemonSummary" />
         </div>
+        <div class="col-sm mb-2">
+            <partial name="PokemonStats" />
+        </div>
     </div>
+    <br />
     <div class="row mt-4">
         <div class="col-12">
             @if (!(Model.PrevPokemon is null))
             {
-                <a asp-action="Pkm" asp-route-id="@(PokemonID - 1)">@Model.PrevPokemon</a>
+                <a asp-action="Pkm" asp-route-id="@(PokemonID - 1)" class="float-left">
+                    @{ var SpriteImg = SpriteSrc + (PokemonID - 1).ToString() + ".png";}
+                    <img class="img-responsive" src="@Url.Content(SpriteImg)" />
+                    <center>@Model.PrevPokemon</center>
+                </a>
             }
             @if (!(Model.NextPokemon is null))
             {
-
-                <a asp-action="Pkm" asp-route-id="@(PokemonID + 1)" class="float-right"><center>@Model.NextPokemon</center></a>
+                <a asp-action="Pkm" asp-route-id="@(PokemonID + 1)" class="float-right">
+                    @{ var SpriteImg = SpriteSrc + (PokemonID + 1).ToString() + ".png";}
+                    <img class="img-responsive" src="@Url.Content(SpriteImg)" />
+                    <center>@Model.NextPokemon</center>
+                </a>
             }
         </div>
     </div>
+    <br />
 </div>
 

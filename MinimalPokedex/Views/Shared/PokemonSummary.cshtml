@@ -1,7 +1,7 @@
 ﻿@model PokemonDetailViewModel
 
 <h3 id="pokemon-bg-name">
-    @Model.Pokemon.Name
+@Model.Pokemon.Name
 </h3>
 Pokedex ID: @Model.Pokemon.PokemonID
 <br>
@@ -11,7 +11,7 @@ Generation : @Model.Pokemon.Generation
 {
     <span>Type: <type type-name="@Model.Pokemon.Type1.TypeName"></type>, <type type-name="@Model.Pokemon.Type2.TypeName"></type></span>
 }
-else 
+else
 {
     <span>Type: <type type-name="@Model.Pokemon.Type1.TypeName"></type></span>
 }
@@ -27,7 +27,8 @@ Weaknesses: @foreach (var w in Model.Weaknesses)
     {
         <type type-name="@w.TypeName"></type>
     }
-}<br>
+}
+<br>
 Abilities: @foreach (var a in Model.Abilities)
 {
     if (a != Model.Abilities.Last())
