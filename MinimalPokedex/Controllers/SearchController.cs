@@ -37,5 +37,32 @@ namespace MinimalPokedex.Controllers
                 }
             });
         }
+
+        public ViewResult ListType()
+        {
+            return View(new TypeListViewModel
+            {
+                Types = repository.Types
+            });
+        }
+
+        public ViewResult FilterType(string typeName, int listPage=1)
+        {
+            var query = repository.Pokemons.Where(p => p.Type1.TypeName == typeName || p.Type2.TypeName ==typeName);
+            var count = query.Count();
+            return View(new PokemonListViewModel
+            {
+                Pokemons = query
+                .OrderBy(p => p.PokemonID)
+                .Skip((listPage - 1) * PageSize)
+                .Take(PageSize),
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = listPage,
+                    ItemsPerPage = PageSize,
+                    TotalItems = count
+                }
+            });
+        }
     }
 }

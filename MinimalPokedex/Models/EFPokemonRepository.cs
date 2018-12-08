@@ -16,6 +16,6 @@ namespace MinimalPokedex.Models
         public IQueryable<PokemonAbilities> PokemonAbilities => context.PokemonAbilities;
         public IQueryable<Type> Type1 => context.Type1;
         public IQueryable<Type> Type2 => context.Type2;
-        public IQueryable<Type> WeaknessTypes => context.WeaknessTypes;
+        public IQueryable<Type> Types => context.Types;
     }
 }

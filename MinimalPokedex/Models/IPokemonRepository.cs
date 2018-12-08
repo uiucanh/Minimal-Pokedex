@@ -10,8 +10,8 @@ namespace MinimalPokedex.Models
         IQueryable<Pokemon> Pokemons { get; }
         IQueryable<Ability> Abilities { get; }
         IQueryable<PokemonAbilities> PokemonAbilities { get; }
+        IQueryable<Type> Types { get; }
         IQueryable<Type> Type1 { get; }
         IQueryable<Type> Type2 { get; }
-        IQueryable<Type> WeaknessTypes { get; }
     }
 }

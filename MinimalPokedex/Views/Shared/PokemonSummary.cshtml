@@ -1,21 +1,11 @@
 ﻿@model PokemonDetailViewModel
 
-<h3 id="pokemon-bg-name">
-@Model.Pokemon.Name
+<h3>
+    @Model.Pokemon.Name
 </h3>
-Pokedex ID: @Model.Pokemon.PokemonID
+Pokedex ID: <span class="text-muted">@Model.Pokemon.PokemonID</span>
 <br>
-Generation : @Model.Pokemon.Generation
-<br>
-@if (Model.Pokemon.Type2 != null)
-{
-    <span>Type: <type type-name="@Model.Pokemon.Type1.TypeName"></type>, <type type-name="@Model.Pokemon.Type2.TypeName"></type></span>
-}
-else
-{
-    <span>Type: <type type-name="@Model.Pokemon.Type1.TypeName"></type></span>
-}
-
+Generation : <span class="text-muted">@Model.Pokemon.Generation</span>
 <br>
 Weaknesses: @foreach (var w in Model.Weaknesses)
 {
@@ -29,14 +19,17 @@ Weaknesses: @foreach (var w in Model.Weaknesses)
     }
 }
 <br>
-Abilities: @foreach (var a in Model.Abilities)
-{
-    if (a != Model.Abilities.Last())
+<span>
+    Abilities:
+    @foreach (var a in Model.Abilities)
     {
-        @: @a.AbilityName,
+        if (a != Model.Abilities.Last())
+        {
+            @: <a href="#" data-toggle="tooltip" data-placement="bottom" title="@a.AbilityDescription">@a.AbilityName,</a>
+        }
+        else
+        {
+            @: <a href="#" data-toggle="tooltip" data-placement="bottom" title="@a.AbilityDescription">@a.AbilityName</a>
+        }
     }
-    else
-    {
-        @: @a.AbilityName
-    }
-}
+</span>

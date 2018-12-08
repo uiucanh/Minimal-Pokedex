@@ -1,0 +1,12 @@
+﻿@model PokemonDetailViewModel
+
+<h3>
+    Information
+</h3>
+
+@{ var isLegendary = Model.Pokemon.IsLegendary ? "Yes" : "No";}
+Legendary: <span class="text-muted">@isLegendary</span>
+<br />
+Experience Growth: <span class="text-muted">@Model.Pokemon.ExperienceGrowth</span>
+<br/>
+Egg Steps: <span class="text-muted">@Model.Pokemon.EggSteps</span>

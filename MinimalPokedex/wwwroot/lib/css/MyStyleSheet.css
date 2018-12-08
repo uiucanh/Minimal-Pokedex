@@ -1,0 +1,187 @@
+﻿.typeNormal {
+    color: #A8A77A;
+}
+
+.typeFire {
+    color: #EE8130;
+}
+
+.typeWater {
+    color: #6390F0;
+}
+
+.typeElectric {
+    color: #F7D02C;
+}
+
+.typeGrass {
+    color: #7AC74C;
+}
+
+.typeIce {
+    color: #96D9D6;
+}
+
+.typeFighting {
+    color: #C22E28;
+}
+
+.typePoison {
+    color: #A33EA1;
+}
+
+.typeGround {
+    color: #E2BF65;
+}
+
+.typeFlying {
+    color: #A98FF3;
+}
+
+.typePsychic {
+    color: #F95587;
+}
+
+.typeBug {
+    color: #A6B91A;
+}
+
+.typeRock {
+    color: #B6A136;
+}
+
+.typeGhost {
+    color: #735797;
+}
+
+.typeDragon {
+    color: #6F35FC;
+}
+
+.typeDark {
+    color: #705746;
+}
+
+.typeSteel {
+    color: #B7B7CE;
+}
+
+.typeFairy {
+    color: #D685AD;
+}
+
+div.typeNormal {
+    width: 100px;
+    border-radius: 15px;
+    background-color: #A8A77A;
+}
+
+div.typeFire {
+    width: 100px;
+    border-radius: 15px;
+    background-color: #EE8130;
+}
+
+div.typeWater {
+    width: 100px;
+    border-radius: 15px;
+    background-color: #6390F0;
+}
+
+div.typeElectric {
+    width: 100px;
+    border-radius: 15px;
+    background-color: #F7D02C;
+}
+
+div.typeGrass {
+    width: 100px;
+    border-radius: 15px;
+    background-color: #7AC74C;
+}
+
+div.typeIce {
+    width: 100px;
+    border-radius: 15px;
+    background-color: #96D9D6;
+}
+
+div.typeFighting {
+    width: 100px;
+    border-radius: 15px;
+    background-color: #C22E28;
+}
+
+div.typePoison {
+    width: 100px;
+    border-radius: 15px;
+    background-color: #A33EA1;
+}
+
+div.typeGround {
+    width: 100px;
+    border-radius: 15px;
+    background-color: #E2BF65;
+}
+
+div.typeFlying {
+    width: 100px;
+    border-radius: 15px;
+    background-color: #A98FF3;
+}
+
+div.typePsychic {
+    width: 100px;
+    border-radius: 15px;
+    background-color: #F95587;
+}
+
+div.typeBug {
+    width: 100px;
+    border-radius: 15px;
+    background-color: #A6B91A;
+}
+
+div.typeRock {
+    width: 100px;
+    border-radius: 15px;
+    background-color: #B6A136;
+}
+
+div.typeGhost {
+    width: 100px;
+    border-radius: 15px;
+    background-color: #735797;
+}
+
+div.typeDragon {
+    width: 100px;
+    border-radius: 15px;
+    background-color: #6F35FC;
+}
+
+div.typeDark {
+    width: 100px;
+    border-radius: 15px;
+    background-color: #705746;
+}
+
+div.typeSteel {
+    width: 100px;
+    border-radius: 15px;
+    background-color: #B7B7CE;
+}
+
+div.typeFairy {
+    width: 100px;
+    border-radius: 15px;
+    background-color: #D685AD;
+}
+
+.custom-toggler.navbar-toggler {
+    border-color: rgb(255,255,255);
+}
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}

@@ -13,7 +13,7 @@ namespace MinimalPokedex.Models
         public DbSet<PokemonAbilities> PokemonAbilities { get; set; }
         public DbSet<Type> Type1 { get; set; }
         public DbSet<Type> Type2 { get; set; }
-        public DbSet<Type> WeaknessTypes { get; set; }
+        public DbSet<Type> Types { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

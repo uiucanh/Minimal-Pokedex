@@ -1,0 +1,17 @@
+﻿@model TypeListViewModel
+<h2 class="text-center mt-2">List of types</h2>
+<p class="text-center mb-4">There are currently @Model.Types.Count() types <br />
+    Click on the icon to find pokemons with that type</p>
+<div align="center" class="container-fluid">
+    @{
+        foreach (var t in Model.Types)
+        {
+            <div class="col-md-2 type@(t.TypeName) mb-1 align-content-center" style="display:inline-block">
+                <a class="text-white" asp-controller="Search" asp-action="FilterType" asp-route-typename="@t.TypeName">
+                    <span class="font-weight-light">@t.TypeName</span>
+                </a>
+            </div>
+        }
+    }
+</div>
+<br />

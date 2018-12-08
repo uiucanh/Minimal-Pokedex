@@ -57,6 +57,7 @@ namespace MinimalPokedex.Models
     {
         public int AbilityID { get; set; }
         public string AbilityName { get; set; }
+        public string AbilityDescription { get; set; }
 
         public IList<PokemonAbilities> PokemonAbilities { get; set; }
     }

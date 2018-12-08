@@ -14,10 +14,17 @@
                 @:<tr>
                 }
                 <td width="33%">
-                    <a asp-controller="Pokemon" asp-action="Pkm" asp-route-id="@p.PokemonID">
                     @{ var SpriteImg = SpriteSrc + p.PokemonID + ".png";}
-                    <center><img src="@Url.Content(SpriteImg)" /></center>
-                    <center>@p.Name</center></a>
+                    <center>
+                        <a asp-controller="Pokemon" asp-action="Pkm" asp-route-id="@p.PokemonID">
+                            <img class="hvr-float" src="@Url.Content(SpriteImg)" />
+                        </a>
+                    </center>
+                    <center>
+                        <a asp-controller="Pokemon" asp-action="Pkm" asp-route-id="@p.PokemonID">
+                            @p.Name
+                        </a>
+                    </center>
                 </td>
                 pokemonCount++;
             }
