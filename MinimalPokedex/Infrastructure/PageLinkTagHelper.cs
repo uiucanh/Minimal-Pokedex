@@ -46,6 +46,15 @@ namespace MinimalPokedex.Infrastructure
                 else { 
                     tag.Attributes["href"] = urlHelper.Action(PageAction, new { listPage = i, searchString = PageModel.SearchString });
                 }
+
+                if (PageModel.GenNum == 0)
+                {
+                    tag.Attributes["href"] = urlHelper.Action(PageAction, new { listPage = i });
+                }
+                else
+                {
+                    tag.Attributes["href"] = urlHelper.Action(PageAction, new { listPage = i, genNum = PageModel.GenNum });
+                }
                 if (PageClassesEnabled)
                 {
                     tag.AddCssClass(PageClass);

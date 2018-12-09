@@ -32,8 +32,15 @@ namespace MinimalPokedex
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.UseDeveloperExceptionPage();
-            app.UseStatusCodePages();
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+                app.UseStatusCodePages();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+            }
             app.UseStaticFiles();
             app.UseMvc(routes => {
                 routes.MapRoute(
@@ -50,6 +57,31 @@ namespace MinimalPokedex
                 name: null,
                 template: "Search/Page{listPage}/",
                 defaults: new { controller = "Search", action = "Index" });
+
+                routes.MapRoute(
+                name: null,
+                template: "Types/",
+                defaults: new { controller = "Search", action = "ListType" });
+
+                routes.MapRoute(
+                name: null,
+                template: "Types/{typeName}",
+                defaults: new { controller = "Search", action = "FilterType" });
+
+                routes.MapRoute(
+                name: null,
+                template: "Gens/",
+                defaults: new { controller = "Search", action = "ListGeneration" });
+
+                routes.MapRoute(
+                name: null,
+                template: "Gens/Num{genNum}/Page{listPage}",
+                defaults: new { controller = "Search", action = "FilterGen" });
+
+                routes.MapRoute(
+                name: null,
+                template: "Gens/Num{genNum}",   
+                defaults: new { controller = "Search", action = "FilterGen" });
 
                 routes.MapRoute(
                 name: "default",

@@ -1,0 +1,24 @@
+﻿
+<h2 class="text-center mt-2">List of Generations</h2>
+<p class="text-center mb-4">
+    There are currently @ViewBag.NumGen generations <br />
+    Click on the link to find pokemons within that generation
+</p>
+
+<table class="table w-25" align="center">
+    <thead>
+        <tr>
+            <th scope="col">Generation</th>
+            <th scope="col">Pokemon ID</th>
+        </tr>
+    </thead>
+    @{
+        for (int i = 0; i < @ViewBag.NumGen; i++)
+        {
+            <tr>
+                <td><a asp-controller="Search" asp-action="FilterGen" asp-route-gennum="@(i+1)">Generation @(i + 1)</a></td>
+                <td class="font-italic font-weight-light">@ViewBag.NumPokeInGen[i].Item1 - @ViewBag.NumPokeInGen[i].Item2</td>
+            </tr>
+        }
+    }
+</table>
