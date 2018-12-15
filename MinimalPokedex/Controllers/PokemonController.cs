@@ -4,12 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MinimalPokedex.Models;
-using System.Linq;
 using System.Dynamic;
 using MinimalPokedex.Models.ViewModels;
 using System.Diagnostics;
 using Type = MinimalPokedex.Models.Type;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 
 namespace MinimalPokedex.Controllers
 {

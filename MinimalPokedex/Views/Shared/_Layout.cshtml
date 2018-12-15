@@ -7,6 +7,10 @@
     <link rel="stylesheet" asp-href-include="/lib/twitter-bootstrap/**/*.min.css" />
     <link rel="stylesheet" asp-href-include="/lib/hover.css/css/hover-min.css" />
     <link rel="stylesheet" asp-href-include="/lib/css/MyStyleSheet.css" />
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/twitter-bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/notify/notify.min.js"></script>
+    <script src="~/lib/Chart.js/Chart.min.js"></script>
 </head>
 <body style="background-color:aliceblue">
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow" style="background: linear-gradient(to right, #ea5e3d 0%,#e57c67 100%);">
@@ -15,36 +19,36 @@
                 <img src="~/Resources/pokedex.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
                 Minimal Pokedex
             </a>
-            <button class="navbar-toggler custom-toggler"  type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link text-white hvr-grow"  asp-controller="Pokemon" asp-action="List" asp-route-listpage="1">List</a>
+                    <li class="nav-item justify-content-center d-flex flex-fill">
+                        <a class="nav-link text-white hvr-grow" asp-controller="Pokemon" asp-action="List" asp-route-listpage="1">List</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item justify-content-center d-flex flex-fill">
                         <a class="nav-link text-white hvr-grow" asp-controller="Search" asp-action="ListType">Types</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item justify-content-center d-flex flex-fill">
                         <a class="nav-link text-white hvr-grow" asp-controller="Search" asp-action="ListGeneration">Generations</a>
                     </li>
+                    <li class="nav-item justify-content-center d-flex flex-fill">
+                        <a class="nav-link text-white hvr-grow" asp-controller="Team" asp-action="Index">Team</a>
+                    </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0" asp-controller="Search" asp-action="Index" asp-route-listpage="1" method="get">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search for pokemon..." aria-label="Search" name="searchString" required>
+                <form class="form-inline my-2 my-lg-0 justify-content-center d-flex flex-fill" asp-controller="Search" asp-action="Index" asp-route-listpage="1" method="get">
+                    <input class="form-control mr-sm-2 " type="search" placeholder="Search for pokemon..." aria-label="Search" name="searchString" required>
                     <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>
         </div>
     </nav>
 
-    <div class="container py-lg-5 shadow bg-light" >
+    <div class="container py-lg-5 shadow bg-light" style="height:100%">
         @RenderBody()
     </div>
-
-    <script src="~/lib/jquery/jquery.min.js"></script>
-    <script src="~/lib/twitter-bootstrap/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript">
         $(function () {
             $('[data-toggle="tooltip"]').tooltip()

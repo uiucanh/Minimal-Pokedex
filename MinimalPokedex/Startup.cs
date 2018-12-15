@@ -26,7 +26,11 @@ namespace MinimalPokedex
                 options.UseSqlServer(
                 Configuration["Data:MinimalPokedexPokemons:ConnectionString"]));
             services.AddTransient<IPokemonRepository, EFPokemonRepository>();
+            services.AddScoped<Team>(sp => SessionTeam.GetTeam(sp));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddMvc();
+            services.AddMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +46,8 @@ namespace MinimalPokedex
                 app.UseExceptionHandler("/Error");
             }
             app.UseStaticFiles();
+            app.UseSession();
+
             app.UseMvc(routes => {
                 routes.MapRoute(
                 name: "pokemonDetail",

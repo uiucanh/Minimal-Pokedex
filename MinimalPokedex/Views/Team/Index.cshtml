@@ -1,0 +1,105 @@
+﻿@model TeamIndexViewModel
+
+@{
+    var index = 0;
+    Dictionary<string, int> WeaknessDict = new Dictionary<string, int>();
+    foreach (var p in Model.Team.Pokemons)
+    {
+        foreach (var w in p.Weaknesses)
+        {
+            if (WeaknessDict.ContainsKey(w.TypeName))
+            {
+                WeaknessDict[w.TypeName]++;
+            }
+            else
+            {
+                WeaknessDict[w.TypeName] = 1;
+            }
+        }
+    }
+
+    var colorPallette = new Dictionary<string, string>(){{ "Normal" , "#A8A77A" },{"Fire" , "#EE8130"},
+    {"Water" , "#6390F0"},{"Electric" ,  "#F7D02C"},{"Grass" , "#7AC74C"},{"Ice" , "#96D9D6"},{"Fighting" ,  "#C22E28"},
+    {"Poison" , "#A33EA1"},{"Ground" , "#E2BF65"},{"Flying" , "#A98FF3"},{"Psychic" , "#F95587"},{"Bug" , "#A6B91A"},
+    {"Rock" , "#B6A136"},{"Ghost" , "#735797"},{"Dragon" ,  "#6F35FC"},{"Dark" , "#705746"},{"Steel" ,  "#B7B7CE"},
+    { "Fairy" , "#D685AD" }
+    };
+
+    var XLabels = Newtonsoft.Json.JsonConvert.SerializeObject(WeaknessDict.OrderBy(x => x.Value).Select(x => x.Key).Reverse().ToList());
+    var YValues = Newtonsoft.Json.JsonConvert.SerializeObject(WeaknessDict.OrderBy(x => x.Value).Select(x => x.Value).Reverse().ToList());
+    List<String> colors = new List<string>();
+    foreach (var type in WeaknessDict.OrderBy(x => x.Value).Select(x => x.Key).Reverse())
+    {
+        colors.Add(colorPallette[type]);
+    }
+}
+
+<h2 align="center" class="pt-4">Your team</h2>
+<hr class="w-50" />
+
+@{ if (Model.Team.Pokemons.Count() == 0)
+    {
+        <div align="center">There are no pokemons on your team...</div>
+    }
+    else
+    {
+        <div align="center" class="container-fluid">
+            @foreach (var pokemon in Model.Team.Pokemons)
+            {
+                <div style="display:inline-block">
+                    @{ var Img = "~/Sprites/" + pokemon.Pokemon.PokemonID.ToString() + ".png";}
+                    <form id="@index" asp-action="RemoveFromTeam" method="post">
+                        <input type="hidden" name="pokemonID"
+                               value="@pokemon.Pokemon.PokemonID" />
+                        <input type="hidden" name="index"
+                               value="@index" />
+                        <input type="hidden" name="returnUrl"
+                               value="@Model.ReturnUrl" />
+                        <button id="@(index)-button" type="submit" onclick="removePokemon(@index, @pokemon.Pokemon.PokemonID);"
+                                class="close" aria-label="Close" style="position:relative; z-index:4; top:20px; right:10px">
+                            <span aria-hidden="true" style="color:red" class="hvr-grow">&times;</span>
+                        </button>
+                    </form>
+                    <img src="@Url.Content(Img)" />
+                </div>
+                index++;
+            }
+        </div>
+    }
+}
+<hr class="w-50"/>
+<div class="chart-container">
+    <canvas id="chart" style="width:300px; height:300px"></canvas>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var chartName = "chart";
+        var ctx = document.getElementById(chartName).getContext('2d');
+        var data = {
+                labels: @Html.Raw(XLabels),
+                datasets: [{
+                    label: "Weakness Chart",
+                    borderWidth: 1,
+                    data: @Html.Raw(YValues),
+                    backgroundColor: @Html.Raw(Json.Serialize(colors))}]
+                };
+
+    var options = {
+        maintainAspectRatio: false,
+        legend: {
+            position: 'bottom'
+        },
+        title: {
+            display: true,
+            text: 'Your Team Weaknesses'
+        },
+    };
+
+    var myChart = new  Chart(ctx, {
+        options: options,
+        data: data,
+        type:'doughnut'
+    });
+});
+</script>  

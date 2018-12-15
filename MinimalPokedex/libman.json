@@ -26,6 +26,13 @@
     {
       "library": "hover.css@2.3.1",
       "destination": "wwwroot/lib/hover.css/"
+    },
+    {
+      "library": "Chart.js@2.7.3",
+      "destination": "wwwroot/lib/Chart.js/",
+      "files": [
+        "Chart.min.js"
+      ]
     }
   ]
 }

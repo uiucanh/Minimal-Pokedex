@@ -1,0 +1,9 @@
+﻿@model Team
+
+<div class="">
+    <a class="btn btn-sm btn-secondary navbar-btn"
+       asp-controller="Team" asp-action="Index"
+       asp-route-returnurl="@ViewContext.HttpContext.Request.PathAndQuery()">
+        <i class="fa fa-shopping-cart"></i>
+    </a>
+</div>
